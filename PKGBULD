@@ -1,4 +1,4 @@
-# Maintainer: Saeed Badreldeen <your-email@example.com>
+# Maintainer: Saeed Badrelden <helwanlinux@gmail.com>
 pkgname=hpm
 pkgver=1.0.0
 pkgrel=1
@@ -43,4 +43,5 @@ package() {
   install -d "${pkgdir}/usr/share/${pkgname}/assets"
   cp -r "$srcdir/$pkgname/assets/"* "${pkgdir}/usr/share/${pkgname}/assets/"
   
+
 }
