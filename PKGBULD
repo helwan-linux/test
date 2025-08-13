@@ -1,0 +1,46 @@
+# Maintainer: Saeed Badreldeen <your-email@example.com>
+pkgname=hpm
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Helwan Package Manager - a simple package manager frontend for Arch Linux."
+arch=('x86_64')
+url="https://github.com/helwan-linux/hpm"
+license=('MIT')
+depends=('python-rich' 'python-typer' 'python' 'sudo' 'pacman')
+makedepends=('git' 'python-build' 'python-installer')
+provides=('hpm')
+source=("git+https://github.com/helwan-linux/hpm.git")
+md5sums=('SKIP')
+
+build() {
+  # Change directory to the source folder containing the pyproject.toml file
+  cd "$srcdir/$pkgname"
+  python -m build
+}
+
+package() {
+  # Change directory to the same source folder for the installation
+  cd "$srcdir/$pkgname"
+  
+  # Install the wheel package to the destination directory
+  python -m installer --destdir="$pkgdir" dist/*.whl
+
+  # The wheel installation may not include all necessary files.
+  # We will manually copy the hpm module and other assets to ensure
+  # that all source files, including the i18n and patch files, are present.
+  # This is a critical step to ensure that the translations work correctly.
+  
+  # Determine the Python site-packages directory
+  # This command finds the correct path based on the python interpreter
+  python_site_packages_path=$(python -c "import sysconfig; print(sysconfig.get_path('purelib'))")
+
+  # Use `rsync` to copy the hpm module's contents to the site-packages directory
+  # The `--exclude` flag is used to avoid copying the __pycache__ directory
+  rsync -a --exclude='__pycache__/' "$srcdir/$pkgname/hpm/" "$pkgdir/$python_site_packages_path/hpm/"
+  
+  # If you have assets (like the banner file), copy them as well.
+  # Replace 'assets' with your actual directory name if it's different.
+  install -d "${pkgdir}/usr/share/${pkgname}/assets"
+  cp -r "$srcdir/$pkgname/assets/"* "${pkgdir}/usr/share/${pkgname}/assets/"
+  
+}
