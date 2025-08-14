@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hpm"
+version = "1.0.0"
+authors = [
+  { name="Helwan Linux Team", email="support@helwanlinux.org" },
+]
+description = "Helwan Package Manager: A simple and powerful frontend for pacman"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: POSIX :: Linux",
+]
+dependencies = [
+    "typer[all]>=0.9.0",
+    "rich>=13.0",
+]
+
+[project.scripts]
+hpm = "hpm.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/helwan-linux/hpm"
+Repository = "https://github.com/helwan-linux/hpm"
+
+[tool.setuptools.packages.find]
+where = ["."]
