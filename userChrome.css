@@ -1,0 +1,117 @@
+/*====== Colour ======*/
+
+#tabbrowser-tabs tab.tabbrowser-tab[selected="true"],
+#tabbrowser-tabs tab.tabbrowser-tab[multiselected="true"] {
+  border-top: 2px solid #2F4F4F !important;
+}
+
+
+tab[selected="true"] .tab-background {
+  background: #2F4F4F !important;
+}
+
+
+#navigator-toolbox {
+  background-color: #dbeeee !important; /* اللون الجديد */
+  background-image: linear-gradient(
+    to top,
+    rgba(219, 238, 238, 0.35) 2px,
+    rgba(219, 238, 238, 0.05) 2px,
+    transparent 50%
+  ) !important;
+  border: none !important;
+}
+
+
+/* Sets toolbar to black */
+toolbar#nav-bar {
+  background: #1a7878 !important; /* اللون الجديد */
+  box-shadow: none !important;
+  padding-bottom: 4px !important;
+}
+
+
+/* Sets the URL bar to black */
+#urlbar-background {
+  background: #6a6f58 !important; /* اللون الجديد */
+  border: none !important;
+}
+
+
+/*====== UI Settings ======*/
+
+:root {
+  --navbarWidth: 350px; /* Set width of navbar. Use vw for a percentage of your window, or px for a fixed width */
+  --animationSpeed: 0.3s;
+}
+
+#TabsToolbar {
+  margin-left: var(--navbarWidth) !important;
+}
+
+#nav-bar {
+  margin-right: calc(100vw - var(--navbarWidth)) !important;
+}
+
+#urlbar-container {
+  min-width: 0px !important;
+}
+
+:root[uidensity="compact"] #nav-bar {
+  margin-top: -37px !important;
+  height: 37px !important;
+}
+
+:root:not([uidensity="compact"]):not([uidensity="touch"]) #nav-bar {
+  margin-top: -44px !important;
+  height: 44px !important;
+}
+
+:root[uidensity="touch"] #nav-bar {
+  margin-top: -49px !important;
+  height: 49px !important;
+}
+
+/*====== Hiding buttons ======*/
+
+#back-button,
+#forward-button,
+#tabs-newtab-button,
+#identity-box,
+#tracking-protection-icon-container,
+#page-action-buttons,
+#urlbar-go-button {
+  display: block !important;
+}
+
+
+.titlebar-buttonbox-container {
+  display: block !important;
+}
+
+
+/* Hide Tab Close buttons */
+.tabbrowser-tab .tab-close-button {
+  display: block !important;
+}
+
+
+/*====== Simplifying interface ======*/
+
+#nav-bar {
+  box-shadow: none !important;
+}
+
+/* remove "padding" left and right from tabs */
+.titlebar-spacer {
+  display: block !important;
+}
+
+
+/* remove gap after pinned tabs */
+#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
+  > #tabbrowser-arrowscrollbox
+  > .tabbrowser-tab[first-visible-unpinned-tab] {
+  margin-inline-start: 0 !important;
+}
+
