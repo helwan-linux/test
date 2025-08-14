@@ -22,7 +22,7 @@ dependencies = [
 ]
 
 [project.scripts]
-hpm = "hpm.cli:app"
+hpm = "hpm.main:main"
 
 [project.urls]
 Homepage = "https://github.com/helwan-linux/hpm"
