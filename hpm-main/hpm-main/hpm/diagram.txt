@@ -1,0 +1,52 @@
+hpm/
+📁 hpm/
+├── 📁 LICENSE
+│   ├── 📄 LICENSE
+│   └── 📄 __init__.py
+├── 📄 README.md
+├── 📄 __init__.py
+├── 📁 assets
+│   ├── 📄 __init__.py
+│   ├── 📄 banner.txt
+│   └── 📄 help_examples.md
+├── 📄 diagram.txt
+├── 📁 hpm
+│   ├── 📄 __init__.py
+│   ├── 📄 cli.py
+│   ├── 📁 commands
+│   │   ├── 📄 __init__.py
+│   │   ├── 📄 alias.py
+│   │   ├── 📄 aur.py
+│   │   ├── 📄 clean.py
+│   │   ├── 📄 doctor.py
+│   │   ├── 📄 history_command.py
+│   │   ├── 📄 info.py
+│   │   ├── 📄 install.py
+│   │   ├── 📄 list_command.py
+│   │   ├── 📄 orphans.py
+│   │   ├── 📄 refresh.py
+│   │   ├── 📄 remove.py
+│   │   ├── 📄 search.py
+│   │   ├── 📄 sync.py
+│   │   └── 📄 upgrade.py
+│   ├── 📄 config.py
+│   ├── 📄 constants.py
+│   ├── 📄 i18n.py
+│   ├── 📄 install.py
+│   ├── 📄 pacman.py
+│   └── 📁 utils
+│       ├── 📄 __init__.py
+│       ├── 📄 config.py
+│       ├── 📄 early_args_patch.py
+│       ├── 📄 history.py
+│       ├── 📄 log.py
+│       ├── 📄 pacman.py
+│       └── 📄 safety.py
+├── 📄 main.py
+├── 📄 pyproject.toml
+├── 📄 requirements.txt
+└── 📁 tests
+    ├── 📄 __init__.py
+    ├── 📄 test_install.py
+    ├── 📄 test_remove.py
+    └── 📄 test_utils.py
